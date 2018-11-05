@@ -15,7 +15,7 @@ Install emscripten
 
 ## compile
 
-* In the emscripten directory bash
-     * source ./emsdk_env.sh
-     * cd <this directory>
-     * make
+* In the emscripten directory `bash`
+     * `source ./emsdk_env.sh`
+     * `cd <this directory>`
+     * `make`

@@ -38,7 +38,7 @@ double* EMSCRIPTEN_KEEPALIVE knapsack(int nCols,
                      lbRow0,
                      ubRow1);
 
-  // // set integer variables
+  // set as integer variables
   for(int i = 0; i < nCols; i++) {
     solver.setInteger(i);
   }
