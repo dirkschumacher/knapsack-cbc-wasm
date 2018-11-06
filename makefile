@@ -1,6 +1,7 @@
 all:
 	emcc -O2 -s ERROR_ON_UNDEFINED_SYMBOLS=0 -s WASM=1 \
 		-s ENVIRONMENT=web -s MODULARIZE=1 -s ALLOW_MEMORY_GROWTH=1 \
+		-s NO_EXIT_RUNTIME=1 -s EXTRA_EXPORTED_RUNTIME_METHODS='["ccall"]'\
 		-I/usr/local/include -L/usr/local/lib \
 		-I/usr/local/Cellar/cbc/2.9.9_1/include/cbc/coin \
 		-I/usr/local/Cellar/cgl/0.59.10/include/cgl/coin \
