@@ -6,10 +6,11 @@
 extern "C" {
 #endif
 
-double* EMSCRIPTEN_KEEPALIVE knapsack(int nCols,
-                                      double* obj,
-                                      double* weights,
-                                      double capacity) {
+void EMSCRIPTEN_KEEPALIVE knapsack(int nCols,
+                                    double* obj,
+                                    double* weights,
+                                    double capacity,
+                                    double* out) {
 
   std::vector<int> rowIndices(nCols);
   std::vector<int> colIndices(nCols);
@@ -49,14 +50,10 @@ double* EMSCRIPTEN_KEEPALIVE knapsack(int nCols,
   const char * argList[0]; // no args for now
   CbcMain1(0, argList, model);
 
-  std::vector<double> solution(nCols);
-
   const double *solverSolution = model.solver()->getColSolution();
   for(int i = 0; i < nCols; i++) {
-    solution[i] = solverSolution[i];
+    out[i] = solverSolution[i];
   }
-
-  return solution.data();
 }
 
 #ifdef __cplusplus
